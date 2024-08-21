@@ -1,1 +1,42 @@
-<p>navbar works!</p>
+<nav class="bg-blue-500 p-4 flex items-center justify-between w-4/5 mx-auto rounded-b-lg">
+  <!-- Logo -->
+  <div class="text-white text-lg font-semibold w-1/2 md:w-1/3 flex items-center justify-center">
+    <span>WeAreDev</span>
+  </div>
+
+  <!-- Menu Hambúrguer (visível em telas pequenas) -->
+  <button (click)="toggleNavbar()" class="text-white md:hidden">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+    </svg>
+  </button>
+
+  <!-- Links do Navbar (visíveis em telas médias e grandes) -->
+  <div class="hidden md:flex md:items-center md:space-x-4">
+    <a routerLink="/home" class="text-white text-lg hover:text-gray-200" routerLinkActive="font-bold">Home</a>
+    <a routerLink="/feed" class="text-white text-lg hover:text-gray-200" routerLinkActive="font-bold">Feed</a>
+    <a routerLink="/contact" class="text-white text-lg hover:text-gray-200" routerLinkActive="font-bold">Contact</a>
+  </div>
+  
+  <!-- Input e Botão de Pesquisa (visíveis em telas grandes) -->
+  <div class="hidden lg:flex lg:items-center lg:w-1/3">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." class="px-4 py-2 rounded-l-lg border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" />
+    <button class="px-4 py-2 bg-blue-700 text-white rounded-r-lg hover:bg-blue-800" (click)="onSearch()">
+      Search
+    </button>
+  </div>
+
+  <!-- Sidenav (visível em telas pequenas) -->
+  <div [ngClass]="{'block': isNavbarOpen, 'hidden': !isNavbarOpen}" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-50 md:hidden">
+    <div class="w-64 bg-blue-500 h-full p-4">
+      <button (click)="toggleNavbar()" class="text-white text-2xl mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <a routerLink="/home" class="block text-white text-lg mb-2" routerLinkActive="font-bold" (click)="toggleNavbar()">Home</a>
+      <a routerLink="/feed" class="block text-white text-lg mb-2" routerLinkActive="font-bold" (click)="toggleNavbar()">Feed</a>
+      <a routerLink="/contact" class="block text-white text-lg mb-2" routerLinkActive="font-bold" (click)="toggleNavbar()">Contact</a>
+    </div>
+  </div>
+</nav>

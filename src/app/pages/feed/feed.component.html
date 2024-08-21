@@ -1,1 +1,72 @@
-<p>feed works!</p>
+<div class="container mx-auto my-20 md:h-[calc(100vh-10vh)] w-4/5">
+    <div class="flex flex-col items-center md:flex-row mt-5 mb-5">
+
+        <div class="flex flex-col items-center md:w-1/3 mb-5 md:mb-0 md:self-start">
+            <div class="bg-gray rounded-lg p-4 flex flex-col items-center ">
+                <div class="w-40 h-40 mb-4">
+                    <img src="https://wearedev.com.br/theG0ulart/src/assets/img/profile.png" alt="" class="w-full h-full rounded-full">
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <p class="text-lg font-semibold my-4">Lucas Goulart</p>
+                    <p class="text-base">Desenvolvedor Web FullStack</p>
+
+                    <a href="https://www.github.com/theg0ulart" target="_blank" class="w-full"><button type="button" class="w-full text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Github</button></a>
+
+                    <hr class="m-4 w-full">
+
+                    <p class="text-base font-semibold">Pesquisar por nome</p>
+
+                    <div class="border w-full mb-4">
+                        <input type="text" name="pesquisar" placeholder="Digite o nome" class="w-full p-2" [(ngModel)]="searchName">
+                    </div>
+
+                    <button type="button" 
+                        class="w-full text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                        (click)="filterPosts()">Pesquisar</button>
+                </div>
+            </div>  
+        </div>
+
+        <hr class="w-2/3 md:hidden py-4">
+        
+        <div class="md:w-2/3">
+            <div class="flex flex-col border rounded-md p-4">
+                <p class="text-lg font-semibold text-center">Digite abaixo o seu comentário:</p>
+                <div class="w-full mb-2">
+                    <label for="nome">Nome:</label>
+                    <div class="my-2">
+                        <input type="text" name="nome" id="nome" 
+                            placeholder="Digite o seu nome" 
+                            class="w-full border-2 focus:outline-black rounded p-2"
+                            [(ngModel)]="post.nome">
+                    </div>
+                </div>
+
+                <div class="w-full mb-2">
+                    <label for="mensagem">Mensagem:</label>
+                    <div class="my-2">
+                        <textarea name="mensagem" id="mensagem" cols="30" rows="4" 
+                        placeholder="Digite sua mensagem" class="w-full border-2 focus:outline-black rounded p-2"
+                        [(ngModel)]="post.mensagem"></textarea>
+                    </div>
+                </div>
+                <button type="button" 
+                    class="md:w-1/4 self-end text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                    (click)="cadastrarMensagem()">Enviar</button>
+            </div>
+
+            <hr class="my-5">
+
+            <p class="text-lg font-semibold text-center">Comentários adicionados</p>
+            
+            <div class="space-y-4 p-4" *ngFor="let post of listPost">
+                <div class="bg-stone-400 rounded-md p-4">
+                    <p class="text-lg font-bold">{{post.id}}</p>
+                    <p class="text-base">{{post.nome}}</p>
+                    <p class="text-base">{{post.mensagem}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

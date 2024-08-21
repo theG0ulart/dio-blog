@@ -1,1 +1,25 @@
-<p>contact works!</p>
+<div class="container mt-20 flex flex-col mx-auto content items-center w-4/5">
+    <p class="text-2xl font-bold mb-4"> Entre em contato conosco</p>
+    <div class="border-4 rounded-lg w-2/3 p-4">
+        <form class="flex flex-col">
+            <div class="flex flex-col mb-2">
+                <label for="nome" class="mb-2 text-lg font-semibold">Nome:</label>
+                <div class="w-full outline-2 border-2 rounded-md">
+                    <input type="text" name="nome" id="nome" placeholder="Digite o seu nome" class="w-full p-2">
+                </div>
+            </div>
+            <div class="flex flex-col mb-2"> 
+                <label for="email" class="mb-2 text-lg font-semibold">Email:</label>
+                <div class="w-full outline-2 border-2 rounded-md">
+                    <input type="email" name="email" id="email" placeholder="name@example.com" class="w-full p-2">
+                </div>
+            </div>
+            <div class="flex flex-col mb-4">
+                <label for="mensagem" class="mb-2 text-lg font-semibold">Mensagem</label>
+                <textarea name="mensagem" id="mensagem" rows="3" class="w-full border-2 rounded-md"></textarea>
+            </div>
+            <button class="sm:w-1/4 self-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Enviar</button>
+        </form>
+    </div>
+    
+</div> 
